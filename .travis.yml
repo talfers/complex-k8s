@@ -17,7 +17,7 @@ before_install:
   - gcloud config set project complex-k8s-301222
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials complex-k8s-cluster
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
   - docker build -t talfers/react-test -f ./client/Dockerfile.dev ./client
 
 script:
